@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_test_pages_docs=self.webpackChunk_test_pages_docs||[]).push([[627],{6074:(s,e,t)=>{t.r(e),t.d(e,{default:()=>a});t(7294);var c=t(2263),n=t(2566),i=t(272),r=t(5893);function a(){const{siteConfig:s}=(0,c.Z)();return(0,r.jsxs)(n.Z,{children:[(0,r.jsx)("h2",{children:"Site config"}),(0,r.jsx)(i.Z,{src:s,collapseDepth:3})]})}}}]);
