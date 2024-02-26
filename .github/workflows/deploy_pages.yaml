@@ -14,13 +14,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Node Base actions
-        uses: consensys-vertical-apps/shared-services-workflows/.github/actions/node-base-actions@v0.20.3
+        uses: actions/setup-node@v4
         with:
-          node_version: 18
-          npm_client: yarn
-          npm_registry_name: codefi
-          npm_registry_url: ${{ vars.NPM_PRIVATE_REGISTRY_URL }}
-          npm_registry_token: ${{ secrets.NPM_PRIVATE_REGISTRY_RO_TOKEN }}
+          node-version: 18
+          #   npm_client: yarn
+          #   npm_registry_name: codefi
+          registry-url: ${{ vars.NPM_PRIVATE_REGISTRY_URL }}
+        #   npm_registry_token: ${{ secrets.NPM_PRIVATE_REGISTRY_RO_TOKEN }}
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
