@@ -1,8 +1,8 @@
 import type { Config } from '@docusaurus/types'
 import type { PresetEntry } from 'redocusaurus'
 
-const url = 'https://xavier-brochard.github.io' // Ultimately 'https://api.metamask-institutional.io'
-const baseUrl = '/test-pages/' // Ultimately ''
+const url = 'https://ge5kcw08xe.execute-api.eu-west-3.amazonaws.com' // Ultimately 'https://api.metamask-institutional.io'
+const baseUrl = '/v1/docs/' // Ultimately ''
 
 /**
  * @see https://github.com/rohit-gohri/redocusaurus
