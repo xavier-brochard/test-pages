@@ -17,14 +17,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          #   npm_client: yarn
-          #   npm_registry_name: codefi
           registry-url: ${{ vars.NPM_PRIVATE_REGISTRY_URL }}
-        #   npm_registry_token: ${{ secrets.NPM_PRIVATE_REGISTRY_RO_TOKEN }}
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
         working-directory: docs
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
 
       - name: Build website
         run: yarn build
