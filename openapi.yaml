@@ -1,0 +1,16 @@
+openapi: 3.0.1
+info:
+  version: v1
+  title: xavier-test-api-gateway-docs
+  description: |
+    Xavier testing stuff to host the API Gateway docs under a better domain
+servers:
+  - url: https://api.metamask-institutional.io
+paths:
+  /docs:
+    x-amazon-apigateway-any-method:
+      x-amazon-apigateway-integration:
+        uri: https://xavier-brochard.github.io/test-pages/docs/
+        passthroughBehavior: when_no_match
+        httpMethod: ANY
+        type: http_proxy

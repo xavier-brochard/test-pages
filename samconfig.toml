@@ -1,0 +1,38 @@
+# More information about the configuration file can be found here:
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+version = 0.1
+
+[dev.build.parameters]
+cached = true
+parallel = true
+
+[dev.validate.parameters]
+lint = true
+
+[dev]
+[dev.deploy]
+[dev.deploy.parameters]
+stack_name = "xavier-test-api-gateway-docs"
+resolve_s3 = true
+s3_prefix = "xavier-test-api-gateway-docs"
+region = "eu-west-3"
+confirm_changeset = true
+capabilities = "CAPABILITY_NAMED_IAM"
+parameter_overrides = [
+    "BaseUrl=api.dev.metamask-institutional.io",
+    "ApiVersion=v1",
+    "CertificateArn=arn:aws:acm:eu-west-3:820510760164:certificate/0a2af8e5-e5fc-4ad7-9f3f-41c64be0f997",
+]
+image_repositories = []
+
+[dev.package.parameters]
+resolve_s3 = true
+
+[dev.sync.parameters]
+watch = true
+
+[dev.local_start_api.parameters]
+warm_containers = "EAGER"
+
+[dev.local_start_lambda.parameters]
+warm_containers = "EAGER"

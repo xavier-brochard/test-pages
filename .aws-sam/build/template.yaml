@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Xavier testing stuff to host the API Gateway docs under a better domain
+Resources:
+  TestPages:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: xavier-test-api-gateway-docs
+      StageName: v1
+      CacheClusterEnabled: true
+      CacheClusterSize: '1.6'
+      DefinitionBody:
+        Fn::Transform:
+          Name: AWS::Include
+          Parameters:
+            Location: ../../openapi.yaml
+      EndpointConfiguration:
+        Type: EDGE
+      Auth:
+        ApiKeyRequired: true
+      MethodSettings:
+      - LoggingLevel: INFO
+        DataTraceEnabled: true
+        MetricsEnabled: true
+        ResourcePath: /*
+        HttpMethod: '*'

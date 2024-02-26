@@ -1,0 +1,54 @@
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-resources-and-properties.html
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Xavier testing stuff to host the API Gateway docs under a better domain
+
+# Parameters:
+  # BaseUrl:
+  #   Description: Domain name where the API is accessible, for instance api.sample.io
+  #   Type: String
+  # CertificateArn:
+  #   Type: String
+  #   Description: ARN of the certificate for the domain name
+
+Resources:
+  TestPages:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: xavier-test-api-gateway-docs
+      StageName: v1
+      CacheClusterEnabled: true
+      CacheClusterSize: "1.6"
+      DefinitionBody:
+        Fn::Transform:
+          Name: AWS::Include
+          Parameters:
+            Location: ./openapi.yaml
+      EndpointConfiguration:
+        Type: EDGE
+      Auth:
+        ApiKeyRequired: true
+      MethodSettings:
+        - LoggingLevel: INFO
+          DataTraceEnabled: true
+          MetricsEnabled: true
+          ResourcePath: '/*' # Apply to all resources
+          HttpMethod: '*' # Apply to all HTTP methods
+
+  # CustomDomainName:
+  #   Type: AWS::ApiGateway::DomainName
+  #   Properties:
+  #     DomainName: !Ref BaseUrl
+  #     EndpointConfiguration:
+  #       Types:
+  #         - REGIONAL
+  #     RegionalCertificateArn: !Ref CertificateArn
+  #     SecurityPolicy: TLS_1_2
+
+  # BasePathMapping:
+  #   Type: AWS::ApiGateway::BasePathMapping
+  #   Properties:
+  #     DomainName: !Ref CustomDomainName
+  #     RestApiId: !Ref MmiApiGateway
+  #     Stage: !Ref MmiApiGateway.Stage # https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-generated-resources-api.html
+
