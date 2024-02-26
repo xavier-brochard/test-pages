@@ -1,0 +1,40 @@
+{
+  "name": "@test-pages/docs",
+  "version": "1.0.0",
+  "description": "Web API",
+  "author": "Xavier Brochard",
+  "scripts": {
+    "clear": "docusaurus clear",
+    "dev": "docusaurus start",
+    "start": "docusaurus start",
+    "build": "NODE_OPTIONS='--inspect' docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "serve": "docusaurus serve"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^3.0.0",
+    "@docusaurus/preset-classic": "^3.0.0",
+    "@docusaurus/theme-common": "^3.0.0",
+    "@docusaurus/utils": "^3.0.0",
+    "clsx": "^1.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "redocusaurus": "^2.0.0"
+  },
+  "devDependencies": {
+    "@codefi/mmi-openapi-arcanum": "^1.1.14",
+    "@docusaurus/module-type-aliases": "2.1.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
