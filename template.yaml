@@ -26,8 +26,8 @@ Resources:
             Location: ./openapi.yaml
       EndpointConfiguration:
         Type: EDGE
-      Auth:
-        ApiKeyRequired: true
+      # Auth:
+      #   ApiKeyRequired: true
       MethodSettings:
         - LoggingLevel: INFO
           DataTraceEnabled: true

@@ -7,7 +7,7 @@ info:
 servers:
   - url: https://api.metamask-institutional.io
 paths:
-  /docs:
+  /docs/{proxy+}:
     x-amazon-apigateway-any-method:
       x-amazon-apigateway-integration:
         uri: https://xavier-brochard.github.io/test-pages/docs/
